@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 19:33:17 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/03 04:44:52 by tkhattar         ###   ########.fr       */
+/*   Created: 2018/02/04 16:40:33 by oahieiev          #+#    #+#             */
+/*   Updated: 2018/02/04 16:41:05 by oahieiev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <math.h>
 
-double	find_perc(double start, double end, double cur)
+double				find_perc(double start, double end, double cur)
 {
 	if (start == end)
 		return (1.0);
@@ -24,18 +24,18 @@ double	find_perc(double start, double end, double cur)
 	return ((cur - start) / (end - start));
 }
 
-static int	interp_i(int first, int second, double p)
+static int			interp_i(int first, int second, double p)
 {
 	if (first == second)
 		return (first);
 	return ((int)((1 - p) * first + p * second));
 }
 
-int	interp_color(int c1, int c2, double p)
+int					interp_color(int c1, int c2, double p)
 {
-	int	r;
-	int	g;
-	int	b;
+	int r;
+	int g;
+	int b;
 
 	if (c1 == c2)
 		return (c1);
@@ -45,7 +45,7 @@ int	interp_color(int c1, int c2, double p)
 	return (r << 16 | g << 8 | b);
 }
 
-int	get_color(int z, t_map map)
+int					get_color(int z, t_map map)
 {
 	int			rgb;
 	t_point		color[10];
@@ -68,6 +68,6 @@ int	get_color(int z, t_map map)
 	lmax = (i == 5) ? map.max_z : map.min_z + (0.2 + i * 0.200) * (map.rng);
 	(i == 5) ? i = 4 : 0;
 	rgb = interp_color(color[i + map.cm % 10].x, color[i + map.cm % 10].y,
-			find_perc(lmin, lmax, z));
+		find_perc(lmin, lmax, z));
 	return (rgb);
 }

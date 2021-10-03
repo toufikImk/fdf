@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 19:33:09 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/03 03:31:40 by tkhattar         ###   ########.fr       */
+/*   Created: 2018/02/04 16:41:29 by oahieiev          #+#    #+#             */
+/*   Updated: 2018/02/04 16:41:31 by oahieiev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "mlx.h"
 
-int	mouse_pressed(int button, int mousex, int mousey, void *param)
+int				mouse_pressed(int button, int mousex, int mousey, void *param)
 {
 	t_fdf			*fdf;
 
@@ -36,13 +36,13 @@ int	mouse_pressed(int button, int mousex, int mousey, void *param)
 	return (0);
 }
 
-static void	switch_view(t_fdf *fdf, int key)
+static void		switch_view(t_fdf *fdf, int key)
 {
 	if (key == KB_U)
 		fdf->map->cm += 5;
 	else
 	{
-		fdf->cam->yoff -= (fdf->map->w * (fdf->cam->zoom >> 1)) * \
+		fdf->cam->yoff -= (fdf->map->w * (fdf->cam->zoom >> 1)) *
 			((fdf->cam->isom) ? 1 : -1);
 		fdf->cam->alph = fdf->cam->isom ? 0.0f : rad(ISOMETRIC_ANGLE_A);
 		fdf->cam->beta = fdf->cam->isom ? 0.0f : rad(ISOMETRIC_ANGLE_B);
@@ -51,7 +51,7 @@ static void	switch_view(t_fdf *fdf, int key)
 	}
 }
 
-static void	move(int key, t_fdf *p)
+static void		move(int key, t_fdf *p)
 {
 	const int	step = 10;
 
@@ -65,7 +65,7 @@ static void	move(int key, t_fdf *p)
 		p->cam->yoff -= step;
 }
 
-static void	rotate(int key, t_fdf *fdf)
+static void		rotate(int key, t_fdf *fdf)
 {
 	const float	step = rad(2.0f);
 
@@ -83,7 +83,7 @@ static void	rotate(int key, t_fdf *fdf)
 		fdf->cam->beta += step;
 }
 
-int	key_pressed(int key, void *param)
+int				key_pressed(int key, void *param)
 {
 	t_fdf	*fdf;
 
@@ -94,8 +94,8 @@ int	key_pressed(int key, void *param)
 		exit(0);
 		return (0);
 	}
-	else if (key == KB_UP || key == KB_DOWN || key == KB_LEFT \
-		|| key == KB_RIGHT || key == KB_W || key == KB_S)
+	else if (key == KB_UP || key == KB_DOWN || key == KB_LEFT ||
+		key == KB_RIGHT || key == KB_W || key == KB_S)
 		rotate(key, fdf);
 	else if (key == KP_4 || key == KP_6 || key == KP_8 || key == KP_2)
 		move(key, fdf);

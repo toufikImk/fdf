@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 19:32:57 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/03 03:34:05 by tkhattar         ###   ########.fr       */
+/*   Created: 2018/02/04 16:41:57 by oahieiev          #+#    #+#             */
+/*   Updated: 2018/02/04 16:41:59 by oahieiev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "mlx.h"
 #include <stdlib.h>
 
-void	*cleanall(t_fdf *fdf)
+void			*cleanall(t_fdf *fdf)
 {
 	ft_memdel((void **)&(fdf->cam));
 	if (fdf->map)
@@ -39,19 +39,19 @@ static t_fdf	*init_fdf(t_map *map)
 
 	if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
 		return (NULL);
-	if (!(fdf->mlx = mlx_init()) || \
-		!(fdf->window = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF")) || \
-		!(fdf->cam = malloc(sizeof(t_cam))) || \
-		!(fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT)) || \
+	if (!(fdf->mlx = mlx_init()) ||
+		!(fdf->window = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF")) ||
+		!(fdf->cam = malloc(sizeof(t_cam))) ||
+		!(fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT)) ||
 		!(fdf->pxl = mlx_get_data_addr(fdf->img, &(fdf->bpp),
-				&(fdf->s_line), &(fdf->endian))))
+		&(fdf->s_line), &(fdf->endian))))
 		return (cleanall(fdf));
 	fdf->map = map;
 	fdf->cam->alph = rad(ISOMETRIC_ANGLE_A);
 	fdf->cam->beta = rad(ISOMETRIC_ANGLE_B);
 	fdf->cam->gamm = rad(ISOMETRIC_ANGLE_G);
 	fdf->cam->zoom = MIN(HEIGHT / abs(map->rng + 1),
-			((HEIGHT / map->h + WIDTH / map->w) / 4) + 1);
+		((HEIGHT / map->h + WIDTH / map->w) / 4) + 1);
 	fdf->cam->zoom <= 0 ? fdf->cam->zoom = 1 : 0;
 	fdf->cam->xoff = -(map->w * fdf->cam->zoom / 4);
 	fdf->cam->yoff = (map->h * fdf->cam->zoom) / 3;
@@ -61,7 +61,7 @@ static t_fdf	*init_fdf(t_map *map)
 	return (fdf);
 }
 
-int	main(int ac, char **av)
+int				main(int ac, char **av)
 {
 	t_fdf		*fdf;
 	t_map		*map;

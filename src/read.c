@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 19:32:49 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/03 04:41:50 by tkhattar         ###   ########.fr       */
+/*   Created: 2018/02/04 16:42:06 by oahieiev          #+#    #+#             */
+/*   Updated: 2018/02/04 16:42:08 by oahieiev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "readutils.h"
 #include <stdlib.h>
 
-static void	find_range(t_map *map)
+static void				find_range(t_map *map)
 {
 	int			min;
 	int			max;
@@ -43,7 +43,7 @@ static void	find_range(t_map *map)
 	map->rng = max - min;
 }
 
-static int	conv_to_arr(t_map *map, t_coords *coords)
+static int				conv_to_arr(t_map *map, t_coords *coords)
 {
 	int			*coord_arr;
 	int			*color_arr;
@@ -52,7 +52,7 @@ static int	conv_to_arr(t_map *map, t_coords *coords)
 	int			success;
 
 	success = 1;
-	if (!(map->coord_arr = (int *)malloc(sizeof(int) * map->w * map->h)) || \
+	if (!(map->coord_arr = (int *)malloc(sizeof(int) * map->w * map->h)) ||
 		!(map->color_arr = (int *)malloc(sizeof(int) * map->w * map->h)))
 		success = 0;
 	i = 0;
@@ -69,7 +69,7 @@ static int	conv_to_arr(t_map *map, t_coords *coords)
 	return (success);
 }
 
-static int	read_split(char **split, t_map *map, t_coords **coords)
+static int				read_split(char **split, t_map *map, t_coords **coords)
 {
 	char	**split_h;
 	int		success;
@@ -88,7 +88,7 @@ static int	read_split(char **split, t_map *map, t_coords **coords)
 	return (success);
 }
 
-static int	gnl_cycle(t_map *map, int fd, t_coords **coords)
+static int				gnl_cycle(t_map *map, int fd, t_coords **coords)
 {
 	int			rv;
 	int			n;
@@ -98,10 +98,8 @@ static int	gnl_cycle(t_map *map, int fd, t_coords **coords)
 
 	n = -1;
 	success = 1;
-	rv = get_next_line(fd, &line);
-	while (rv > 0 && success)
+	while ((rv = get_next_line(fd, &line)) > 0 && success)
 	{
-		rv = get_next_line(fd, &line);
 		if (n == -1)
 			n = countwords(line, ' ');
 		split = ft_strsplit(line, ' ');
@@ -114,14 +112,13 @@ static int	gnl_cycle(t_map *map, int fd, t_coords **coords)
 	return (success);
 }
 
-t_map	*read_map(int fd)
+t_map					*read_map(int fd)
 {
 	t_map		*map;
 	t_coords	*coords;
 
 	coords = NULL;
-	map = malloc(sizeof(t_map));
-	if (!(map))
+	if (!(map = malloc(sizeof(t_map))))
 		return (NULL);
 	map->w = 0;
 	map->h = 0;

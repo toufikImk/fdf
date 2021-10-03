@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/29 19:33:03 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/03 03:24:40 by tkhattar         ###   ########.fr       */
+/*   Created: 2018/02/04 16:41:46 by oahieiev          #+#    #+#             */
+/*   Updated: 2018/02/04 16:41:48 by oahieiev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "util.h"
 #include "mlx.h"
 
-static void	put_pxl(t_fdf *fdf, t_point p, unsigned int color)
+static void		put_pxl(t_fdf *fdf, t_point p, unsigned int color)
 {
 	int		i;
 	int		j;
@@ -30,7 +30,7 @@ static void	put_pxl(t_fdf *fdf, t_point p, unsigned int color)
 	}
 }
 
-static void	draw_ln(t_fdf *fdf, t_point p0, t_point p1)
+static void		draw_ln(t_fdf *fdf, t_point p0, t_point p1)
 {
 	t_point		delta;
 	t_point		sign;
@@ -77,16 +77,16 @@ static t_point	project(int x, int y, int z, t_fdf *fdf)
 	x -= (fdf->map->w * fdf->cam->zoom) >> 1;
 	y -= (fdf->map->h * fdf->cam->zoom) >> 1;
 	p.x = b.cos * g.cos * x + b.cos * g.sin * y + b.sin * z;
-	p.y = (-a.sin * b.sin * g.cos - a.cos * g.sin) * x + \
+	p.y = (-a.sin * b.sin * g.cos - a.cos * g.sin) * x +
 		(a.cos * g.cos - a.sin * b.sin * g.sin) * y + a.sin * b.cos * z;
-	p.z = (-b.sin * a.cos * g.cos + a.sin * g.sin) * x + (-b.sin * \
+	p.z = (-b.sin * a.cos * g.cos + a.sin * g.sin) * x + (-b.sin *
 		a.cos * g.sin - a.sin * g.cos) * y + a.cos * b.cos * z;
 	p.x += (WIDTH >> 1) + fdf->cam->xoff;
 	p.y += (HEIGHT >> 1) + fdf->cam->yoff;
 	return (p);
 }
 
-static void	print_controls(t_fdf *fdf)
+static void		print_controls(t_fdf *fdf)
 {
 	int		y;
 	int		x;
@@ -115,7 +115,7 @@ static void	print_controls(t_fdf *fdf)
 			"Press H to show controls");
 }
 
-void	draw(t_fdf *fdf, int w, int h)
+void			draw(t_fdf *fdf, int w, int h)
 {
 	t_point		p;
 	int			*coords;
@@ -131,10 +131,10 @@ void	draw(t_fdf *fdf, int w, int h)
 			p.z = coords[ind(p.x, p.y, w, h)];
 			if (p.x != w - 1)
 				draw_ln(fdf, project(p.x, p.y, p.z, fdf), project(p.x + 1, p.y,
-						coords[ind(p.x + 1, p.y, w, h)], fdf));
+				coords[ind(p.x + 1, p.y, w, h)], fdf));
 			if (p.y != h - 1)
 				draw_ln(fdf, project(p.x, p.y, p.z, fdf), project(p.x, p.y + 1,
-						coords[ind(p.x, p.y + 1, w, h)], fdf));
+				coords[ind(p.x, p.y + 1, w, h)], fdf));
 			p.x++;
 		}
 		p.y++;
