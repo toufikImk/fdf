@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 16:41:29 by oahieiev          #+#    #+#             */
-/*   Updated: 2018/02/04 16:41:31 by oahieiev         ###   ########.fr       */
+/*   Updated: 2021/10/03 05:11:15 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "mlx.h"
 
-int				mouse_pressed(int button, int mousex, int mousey, void *param)
+int	mouse_pressed(int button, int mousex, int mousey, void *param)
 {
 	t_fdf			*fdf;
 
@@ -36,7 +36,7 @@ int				mouse_pressed(int button, int mousex, int mousey, void *param)
 	return (0);
 }
 
-static void		switch_view(t_fdf *fdf, int key)
+static void	switch_view(t_fdf *fdf, int key)
 {
 	if (key == KB_U)
 		fdf->map->cm += 5;
@@ -51,7 +51,7 @@ static void		switch_view(t_fdf *fdf, int key)
 	}
 }
 
-static void		move(int key, t_fdf *p)
+static void	move(int key, t_fdf *p)
 {
 	const int	step = 10;
 
@@ -65,7 +65,7 @@ static void		move(int key, t_fdf *p)
 		p->cam->yoff -= step;
 }
 
-static void		rotate(int key, t_fdf *fdf)
+static void	rotate(int key, t_fdf *fdf)
 {
 	const float	step = rad(2.0f);
 
@@ -83,7 +83,7 @@ static void		rotate(int key, t_fdf *fdf)
 		fdf->cam->beta += step;
 }
 
-int				key_pressed(int key, void *param)
+int	key_pressed(int key, void *param)
 {
 	t_fdf	*fdf;
 

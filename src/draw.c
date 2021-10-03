@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 16:41:46 by oahieiev          #+#    #+#             */
-/*   Updated: 2018/02/04 16:41:48 by oahieiev         ###   ########.fr       */
+/*   Updated: 2021/10/03 05:12:47 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "util.h"
 #include "mlx.h"
 
-static void		put_pxl(t_fdf *fdf, t_point p, unsigned int color)
+static void	put_pxl(t_fdf *fdf, t_point p, unsigned int color)
 {
 	int		i;
 	int		j;
@@ -30,7 +30,7 @@ static void		put_pxl(t_fdf *fdf, t_point p, unsigned int color)
 	}
 }
 
-static void		draw_ln(t_fdf *fdf, t_point p0, t_point p1)
+static void	draw_ln(t_fdf *fdf, t_point p0, t_point p1)
 {
 	t_point		delta;
 	t_point		sign;
@@ -86,7 +86,7 @@ static t_point	project(int x, int y, int z, t_fdf *fdf)
 	return (p);
 }
 
-static void		print_controls(t_fdf *fdf)
+static void	print_controls(t_fdf *fdf)
 {
 	int		y;
 	int		x;
@@ -115,7 +115,7 @@ static void		print_controls(t_fdf *fdf)
 			"Press H to show controls");
 }
 
-void			draw(t_fdf *fdf, int w, int h)
+void	draw(t_fdf *fdf, int w, int h)
 {
 	t_point		p;
 	int			*coords;

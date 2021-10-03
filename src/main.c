@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 16:41:57 by oahieiev          #+#    #+#             */
-/*   Updated: 2018/02/04 16:41:59 by oahieiev         ###   ########.fr       */
+/*   Updated: 2021/10/03 05:12:47 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "mlx.h"
 #include <stdlib.h>
 
-void			*cleanall(t_fdf *fdf)
+void	*cleanall(t_fdf *fdf)
 {
 	ft_memdel((void **)&(fdf->cam));
 	if (fdf->map)
@@ -61,7 +61,7 @@ static t_fdf	*init_fdf(t_map *map)
 	return (fdf);
 }
 
-int				main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_fdf		*fdf;
 	t_map		*map;
