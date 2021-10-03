@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 19:33:17 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/03 03:34:48 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/03 04:44:52 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,9 @@ int	get_color(int z, t_map map)
 	color[9] = assign_point(0xAA3E0B, 0xF2F5FE);
 	i = floor(find_perc(map.min_z, map.max_z, z) * 5);
 	lmin = map.min_z + (i * 0.200) * (map.rng);
+	lmax = (i == 5) ? map.max_z : map.min_z + (0.2 + i * 0.200) * (map.rng);
 	(i == 5) ? i = 4 : 0;
 	rgb = interp_color(color[i + map.cm % 10].x, color[i + map.cm % 10].y,
 			find_perc(lmin, lmax, z));
 	return (rgb);
-}
-
-int	lmax(int i, int max_z, int min_z, int m_rng)
-{
-	if (i == 5)
-		return (max_z);
-	else
-		return (min_z + (0.2 + i * 0.200) * (m_rng));
 }
