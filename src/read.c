@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/29 19:32:49 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/03 04:31:02 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/03 04:41:50 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ static int	gnl_cycle(t_map *map, int fd, t_coords **coords)
 
 	n = -1;
 	success = 1;
+	rv = get_next_line(fd, &line);
 	while (rv > 0 && success)
 	{
 		rv = get_next_line(fd, &line);
