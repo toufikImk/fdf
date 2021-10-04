@@ -18,7 +18,7 @@ float assign_if(int i, int maxz, int minz, int mrng)
 	if (i == 5)
 		return (maxz);
 	else
-		return (minz + (0.2 + i * 0.200) * (mrng););
+		return (minz + (0.2 + i * 0.200) * mrng);
 }	
 
 double	find_perc(double start, double end, double cur)
