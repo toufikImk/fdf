@@ -33,27 +33,40 @@ void	*cleanall(t_fdf *fdf)
 	return (NULL);
 }
 
-static t_fdf	*init_fdf(t_map *map)
+t_fdf	*alloc_fdf(void)
 {
 	t_fdf		*fdf;
 
-	if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
+	fdf = (t_fdf *)malloc(sizeof(t_fdf));
+	if (!(fdf))
 		return (NULL);
-	/*if (!(fdf->mlx = mlx_init()) || \
-		!(fdf->window = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF")) || \
-		!(fdf->cam = malloc(sizeof(t_cam))) || \
-		!(fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT)) || \
-		!(fdf->pxl = mlx_get_data_addr(fdf->img, &(fdf->bpp),
-				&(fdf->s_line), &(fdf->endian))))
-		return (cleanall(fdf));*/
 	fdf->mlx = mlx_init();
 	fdf->window = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF");
 	fdf->cam = malloc(sizeof(t_cam));
 	fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT);
 	fdf->pxl = mlx_get_data_addr(fdf->img, &(fdf->bpp), \
 				&(fdf->s_line), &(fdf->endian));
-	if (!(fdf->mlx) || !(fdf->window) || !(fdf->cam) || !(fdf->img) ||!(fdf->pxl))
+	if (!(fdf->mlx) || !(fdf->window) || !(fdf->cam) || \
+			!(fdf->img) ||!(fdf->pxl))
 		return (cleanall(fdf));
+}
+
+static t_fdf	*init_fdf(t_map *map)
+{
+	t_fdf		*fdf;
+
+	fdf = alloc_fdf();
+	/*if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
+		return (NULL);
+	fdf->mlx = mlx_init();
+	fdf->window = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF");
+	fdf->cam = malloc(sizeof(t_cam));
+	fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT);
+	fdf->pxl = mlx_get_data_addr(fdf->img, &(fdf->bpp), \
+				&(fdf->s_line), &(fdf->endian));
+	if (!(fdf->mlx) || !(fdf->window) || !(fdf->cam) || \
+			!(fdf->img) ||!(fdf->pxl))
+		return (cleanall(fdf));*/
 	fdf->map = map;
 	fdf->cam->alph = rad(ISOMETRIC_ANGLE_A);
 	fdf->cam->beta = rad(ISOMETRIC_ANGLE_B);
