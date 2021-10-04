@@ -39,20 +39,21 @@ static t_fdf	*init_fdf(t_map *map)
 
 	if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
 		return (NULL);
-	if (!(fdf->mlx = mlx_init()) ||
-		!(fdf->window = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF")) ||
-		!(fdf->cam = malloc(sizeof(t_cam))) ||
-		!(fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT)) ||
+	if (!(fdf->mlx = mlx_init()) || \
+		!(fdf->window = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF")) || \
+		!(fdf->cam = malloc(sizeof(t_cam))) || \
+		!(fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT)) || \
 		!(fdf->pxl = mlx_get_data_addr(fdf->img, &(fdf->bpp),
-		&(fdf->s_line), &(fdf->endian))))
+				&(fdf->s_line), &(fdf->endian))))
 		return (cleanall(fdf));
 	fdf->map = map;
 	fdf->cam->alph = rad(ISOMETRIC_ANGLE_A);
 	fdf->cam->beta = rad(ISOMETRIC_ANGLE_B);
 	fdf->cam->gamm = rad(ISOMETRIC_ANGLE_G);
 	fdf->cam->zoom = MIN(HEIGHT / abs(map->rng + 1),
-		((HEIGHT / map->h + WIDTH / map->w) / 4) + 1);
-	fdf->cam->zoom <= 0 ? fdf->cam->zoom = 1 : 0;
+			((HEIGHT / map->h + WIDTH / map->w) / 4) + 1);
+	//fdf->cam->zoom <= 0 ? fdf->cam->zoom = 1 : 0;
+	fdf->cam->zoom = (short)ifi(fdf->cam->zoom, (short)1, (short)0);
 	fdf->cam->xoff = -(map->w * fdf->cam->zoom / 4);
 	fdf->cam->yoff = (map->h * fdf->cam->zoom) / 3;
 	fdf->cam->isom = 1;
@@ -69,7 +70,7 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		if ((fd = open(av[1], O_RDONLY)) < 0 ||
+		if ((fd = open(av[1], O_RDONLY)) < 0 || \
 			!(map = read_map(fd)))
 			return (terminate(READ_ERR_MSG));
 		else
