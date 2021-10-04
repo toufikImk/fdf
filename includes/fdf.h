@@ -100,6 +100,6 @@ int						ind(int x, int y, int w, int h);
 int						terminate(char *err);
 void					*cleanall(t_fdf *fdf);
 float					assign_if(int i, int maxz, int minz, int mrng);
-
+int						assign_if_int(int cond, int c1, int c2)
 
 #endif
