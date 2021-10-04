@@ -39,12 +39,20 @@ static t_fdf	*init_fdf(t_map *map)
 
 	if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
 		return (NULL);
-	if (!(fdf->mlx = mlx_init()) || \
+	/*if (!(fdf->mlx = mlx_init()) || \
 		!(fdf->window = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF")) || \
 		!(fdf->cam = malloc(sizeof(t_cam))) || \
 		!(fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT)) || \
 		!(fdf->pxl = mlx_get_data_addr(fdf->img, &(fdf->bpp),
 				&(fdf->s_line), &(fdf->endian))))
+		return (cleanall(fdf));*/
+	fdf->mlx = mlx_init());
+	fdf->window = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF"));
+	fdf->cam = malloc(sizeof(t_cam)));
+	fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT));
+	fdf->pxl = mlx_get_data_addr(fdf->img, &(fdf->bpp),
+				&(fdf->s_line), &(fdf->endian));
+	if (!(fdf->mlx) || !(fdf->window) !(fdf->cam) || !(fdf->img) ||!(fdf->pxl))
 		return (cleanall(fdf));
 	fdf->map = map;
 	fdf->cam->alph = rad(ISOMETRIC_ANGLE_A);
