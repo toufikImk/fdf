@@ -12,7 +12,7 @@ SRC			= $(addprefix $(SRCDIR), \
 				draw.c		\
 				color.c		\
 				util.c		\
-				util2.c		\
+				utils2.c		\
 				readutils.c)
 OBJ			= $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 FLAGS		= -Wall -Wextra -Werror -O3
