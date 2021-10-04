@@ -72,7 +72,7 @@ int	get_color(int z, t_map map)
 	color[8] = assign_point(0xAA3500, 0xAA3E0B);
 	color[9] = assign_point(0xAA3E0B, 0xF2F5FE);
 	i = floor(find_perc(map.min_z, map.max_z, z) * 5);
-	//lmin = map.min_z + (i * 0.200) * (map.rng);
+	lmin = map.min_z + (i * 0.200) * (map.rng);
 	//lmax = (i == 5) ? map.max_z : map.min_z + (0.2 + i * 0.200) * (map.rng);
 	lmax = assign_if ( i == 5, map.max_z, map.min_z + (0.2 + i * 0.200) * (map.rng));
 	(i == 5) ? i = 4 : 0;
