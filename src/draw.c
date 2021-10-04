@@ -67,7 +67,8 @@ static t_point	project(int x, int y, int z, t_fdf *fdf)
 	t_point		p;
 
 	p.rgb = fdf->map->color_arr[ind(x, y, fdf->map->w, fdf->map->h)];
-	(p.rgb == -1) ? p.rgb = get_color(z, *(fdf->map)) : 0;
+	//(p.rgb == -1) ? p.rgb = get_color(z, *(fdf->map)) : 0;
+	p.rgb = ifi(p.rgb == -1, get_color(z, *(fdf->map), 0));
 	x *= fdf->cam->zoom;
 	y *= fdf->cam->zoom;
 	z *= (fdf->cam->zoom / fdf->cam->zdiv);
