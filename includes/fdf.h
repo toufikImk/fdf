@@ -99,5 +99,7 @@ t_point					assign_point(int x, int y);
 int						ind(int x, int y, int w, int h);
 int						terminate(char *err);
 void					*cleanall(t_fdf *fdf);
+float					assign_if(int cond, float c1, float c2)
+
 
 #endif
