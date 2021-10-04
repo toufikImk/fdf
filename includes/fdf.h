@@ -102,5 +102,6 @@ void					*cleanall(t_fdf *fdf);
 float					assign_if(int i, int maxz, int minz, int mrng);
 int						ifi(int cond, int c1, int c2);
 float					assign_if_float(int cond, float c1, float c2);
+double					ifd(int cond, t_point p, t_point p0, t_point p1);
 
 #endif

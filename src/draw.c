@@ -38,14 +38,13 @@ static void	draw_ln(t_fdf *fdf, t_point p0, t_point p1)
 	t_point		p;
 
 	delta = assign_point(abs(p1.x - p0.x), abs(p1.y - p0.y));
-	//sign = assign_point(p0.x < p1.x ? 1 : -1, p0.y < p1.y ? 1 : -1);
-	sign = assign_point(ifi(p0.x < p1.x , 1, -1), ifi(p0.y < p1.y, 1, -1));
+	sign = assign_point(ifi(p0.x < p1.x, 1, -1), ifi(p0.y < p1.y, 1, -1));
 	error[0] = delta.x - delta.y;
 	p = p0;
 	while (p0.x != p1.x || p0.y != p1.y)
 	{
-		put_pxl(fdf, p0, interp_color(p0.rgb, p1.rgb, (delta.x > delta.y ?
-					find_perc(p.x, p1.x, p0.x) : find_perc(p.y, p1.y, p0.y))));
+		put_pxl(fdf, p0, interp_color(p0.rgb, p1.rgb, ifd(delta.x > delta.y, \
+		p, p0, p1)));
 		error[1] = error[0] * 2;
 		if (error[1] > -delta.y)
 		{
