@@ -49,6 +49,7 @@ t_fdf	*alloc_fdf(void)
 	if (!(fdf->mlx) || !(fdf->window) || !(fdf->cam) || \
 			!(fdf->img) ||!(fdf->pxl))
 		return (cleanall(fdf));
+	return (fdf);
 }
 
 static t_fdf	*init_fdf(t_map *map)
