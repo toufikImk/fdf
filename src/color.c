@@ -13,6 +13,14 @@
 #include "fdf.h"
 #include <math.h>
 
+float assign_if(bool cond, float c1, float c2)
+{
+	if (cond)
+		return (c1);
+	else
+		return (c2);
+}
+
 double	find_perc(double start, double end, double cur)
 {
 	if (start == end)
@@ -33,9 +41,9 @@ static int	interp_i(int first, int second, double p)
 
 int	interp_color(int c1, int c2, double p)
 {
-	int r;
-	int g;
-	int b;
+	int	r;
+	int	g;
+	int	b;
 
 	if (c1 == c2)
 		return (c1);
@@ -64,10 +72,11 @@ int	get_color(int z, t_map map)
 	color[8] = assign_point(0xAA3500, 0xAA3E0B);
 	color[9] = assign_point(0xAA3E0B, 0xF2F5FE);
 	i = floor(find_perc(map.min_z, map.max_z, z) * 5);
-	lmin = map.min_z + (i * 0.200) * (map.rng);
+	//lmin = map.min_z + (i * 0.200) * (map.rng);
 	lmax = (i == 5) ? map.max_z : map.min_z + (0.2 + i * 0.200) * (map.rng);
+	lmax = assign_if ( i == 5, map.max_z, map.min_z + (0.2 + i * 0.200) * (map.rng))
 	(i == 5) ? i = 4 : 0;
 	rgb = interp_color(color[i + map.cm % 10].x, color[i + map.cm % 10].y,
-		find_perc(lmin, lmax, z));
+			find_perc(lmin, lmax, z));
 	return (rgb);
 }
