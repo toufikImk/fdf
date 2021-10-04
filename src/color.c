@@ -13,7 +13,7 @@
 #include "fdf.h"
 #include <math.h>
 
-float assign_if(bool cond, float c1, float c2)
+float assign_if(int cond, float c1, float c2)
 {
 	if (cond)
 		return (c1);
