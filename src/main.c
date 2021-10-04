@@ -53,7 +53,7 @@ static t_fdf	*init_fdf(t_map *map)
 	fdf->cam->zoom = MIN(HEIGHT / abs(map->rng + 1),
 			((HEIGHT / map->h + WIDTH / map->w) / 4) + 1);
 	//fdf->cam->zoom <= 0 ? fdf->cam->zoom = 1 : 0;
-	fdf->cam->zoom = (short)ifi(fdf->cam->zoom < 0, (short)1, (short)0);
+	fdf->cam->zoom = (short)ifi(fdf->cam->zoom <= 0, (short)1, (short)0);
 	fdf->cam->xoff = -(map->w * fdf->cam->zoom / 4);
 	fdf->cam->yoff = (map->h * fdf->cam->zoom) / 3;
 	fdf->cam->isom = 1;
