@@ -44,14 +44,13 @@ static void	switch_view(t_fdf *fdf, int key)
 	{
 		fdf->cam->yoff -= (fdf->map->w * (fdf->cam->zoom >> 1)) * \
 				((assign_if_int(fdf->cam->isom, 1, -1)));
-		//fdf->cam->alph = fdf->cam->isom ? 0.0f : rad(ISOMETRIC_ANGLE_A);
-		fdf->cam->alph = assign_if_float(fdf->cam->isom, 0.0f, rad(ISOMETRIC_ANGLE_A));
-		//fdf->cam->beta = fdf->cam->isom ? 0.0f : rad(ISOMETRIC_ANGLE_B);
-		fdf->cam->beta = assign_if_float(fdf->cam->isom, 0.0f, rad(ISOMETRIC_ANGLE_B));
-		//fdf->cam->gamm = fdf->cam->isom ? 0.0f : rad(ISOMETRIC_ANGLE_G);
-		fdf->cam->gamm = assign_if_float(fdf->cam->isom, 0.0f, rad(ISOMETRIC_ANGLE_G));
+		fdf->cam->alph = assign_if_float(fdf->cam->isom, 0.0f, \
+				rad(ISOMETRIC_ANGLE_A));
+		fdf->cam->beta = assign_if_float(fdf->cam->isom, 0.0f, \
+				rad(ISOMETRIC_ANGLE_B));
+		fdf->cam->gamm = assign_if_float(fdf->cam->isom, 0.0f, \
+				rad(ISOMETRIC_ANGLE_G));
 		fdf->cam->isom = !(fdf->cam->isom);
-
 	}
 }
 
