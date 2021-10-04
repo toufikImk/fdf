@@ -74,7 +74,7 @@ int	get_color(int z, t_map map)
 	i = floor(find_perc(map.min_z, map.max_z, z) * 5);
 	lmin = map.min_z + (i * 0.200) * (map.rng);
 	lmax = assign_if (i, map.max_z, map.min_z, map.rng);
-	i = assign_if_int(i == 5, 4, 0);
+	i = ifi(i == 5, 4, 0);
 	rgb = interp_color(color[i + map.cm % 10].x, color[i + map.cm % 10].y,
 			find_perc(lmin, lmax, z));
 	return (rgb);

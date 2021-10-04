@@ -1,6 +1,6 @@
 #include "fdf.h"
 
-int assign_if_int(int cond, int c1, int c2)
+int ifi(int cond, int c1, int c2)
 {
     if (cond)
         return (c1);

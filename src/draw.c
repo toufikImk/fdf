@@ -38,13 +38,14 @@ static void	draw_ln(t_fdf *fdf, t_point p0, t_point p1)
 	t_point		p;
 
 	delta = assign_point(abs(p1.x - p0.x), abs(p1.y - p0.y));
-	sign = assign_point(p0.x < p1.x ? 1 : -1, p0.y < p1.y ? 1 : -1);
+	//sign = assign_point(p0.x < p1.x ? 1 : -1, p0.y < p1.y ? 1 : -1);
+	sign = assign_point(ifi(p0.x < p1.x , 1, -1), ifi(p0.y < p1.y, 1, -1));
 	error[0] = delta.x - delta.y;
 	p = p0;
 	while (p0.x != p1.x || p0.y != p1.y)
 	{
 		put_pxl(fdf, p0, interp_color(p0.rgb, p1.rgb, (delta.x > delta.y ?
-			find_perc(p.x, p1.x, p0.x) : find_perc(p.y, p1.y, p0.y))));
+					find_perc(p.x, p1.x, p0.x) : find_perc(p.y, p1.y, p0.y))));
 		error[1] = error[0] * 2;
 		if (error[1] > -delta.y)
 		{
@@ -77,10 +78,10 @@ static t_point	project(int x, int y, int z, t_fdf *fdf)
 	x -= (fdf->map->w * fdf->cam->zoom) >> 1;
 	y -= (fdf->map->h * fdf->cam->zoom) >> 1;
 	p.x = b.cos * g.cos * x + b.cos * g.sin * y + b.sin * z;
-	p.y = (-a.sin * b.sin * g.cos - a.cos * g.sin) * x +
+	p.y = (-a.sin * b.sin * g.cos - a.cos * g.sin) * x + \
 		(a.cos * g.cos - a.sin * b.sin * g.sin) * y + a.sin * b.cos * z;
-	p.z = (-b.sin * a.cos * g.cos + a.sin * g.sin) * x + (-b.sin *
-		a.cos * g.sin - a.sin * g.cos) * y + a.cos * b.cos * z;
+	p.z = (-b.sin * a.cos * g.cos + a.sin * g.sin) * x + (-b.sin * \
+			a.cos * g.sin - a.sin * g.cos) * y + a.cos * b.cos * z;
 	p.x += (WIDTH >> 1) + fdf->cam->xoff;
 	p.y += (HEIGHT >> 1) + fdf->cam->yoff;
 	return (p);
@@ -131,10 +132,10 @@ void	draw(t_fdf *fdf, int w, int h)
 			p.z = coords[ind(p.x, p.y, w, h)];
 			if (p.x != w - 1)
 				draw_ln(fdf, project(p.x, p.y, p.z, fdf), project(p.x + 1, p.y,
-				coords[ind(p.x + 1, p.y, w, h)], fdf));
+						coords[ind(p.x + 1, p.y, w, h)], fdf));
 			if (p.y != h - 1)
 				draw_ln(fdf, project(p.x, p.y, p.z, fdf), project(p.x, p.y + 1,
-				coords[ind(p.x, p.y + 1, w, h)], fdf));
+						coords[ind(p.x, p.y + 1, w, h)], fdf));
 			p.x++;
 		}
 		p.y++;
