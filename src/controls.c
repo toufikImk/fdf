@@ -42,7 +42,7 @@ static void	switch_view(t_fdf *fdf, int key)
 		fdf->map->cm += 5;
 	else
 	{
-		fdf->cam->yoff -= (fdf->map->w * (fdf->cam->zoom >> 1)) *
+		fdf->cam->yoff -= (fdf->map->w * (fdf->cam->zoom >> 1)) * \
 			((fdf->cam->isom) ? 1 : -1);
 		fdf->cam->alph = fdf->cam->isom ? 0.0f : rad(ISOMETRIC_ANGLE_A);
 		fdf->cam->beta = fdf->cam->isom ? 0.0f : rad(ISOMETRIC_ANGLE_B);
@@ -94,7 +94,7 @@ int	key_pressed(int key, void *param)
 		exit(0);
 		return (0);
 	}
-	else if (key == KB_UP || key == KB_DOWN || key == KB_LEFT ||
+	else if (key == KB_UP || key == KB_DOWN || key == KB_LEFT || \
 		key == KB_RIGHT || key == KB_W || key == KB_S)
 		rotate(key, fdf);
 	else if (key == KP_4 || key == KP_6 || key == KP_8 || key == KP_2)
