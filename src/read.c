@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 22:18:23 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/05 11:32:11 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 11:38:44 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,16 +98,16 @@ static int	gnl_cycle(t_map *map, int fd, t_coords **coords)
 
 	n = -1;
 	success = 1;
-	rv = 1;
+	rv = get_next_line(fd, &line);
 	while (rv > 0 && success)
 	{
-		rv = get_next_line(fd, &line);
 		if (n == -1)
 			n = countwords(line, ' ');
 		split = ft_strsplit(line, ' ');
 		if (n != countwords(line, ' ') || !(read_split(split, map, coords)))
 			success = 0;
 		ft_strdel(&line);
+		rv = get_next_line(fd, &line);
 	}
 	if (rv == -1)
 		return (0);
