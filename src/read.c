@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 22:18:23 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/05 11:49:47 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 12:41:51 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,9 @@ static int	conv_to_arr(t_map *map, t_coords *coords)
 	int			success;
 
 	success = 1;
-	if (!(map->coord_arr = (int *)malloc(sizeof(int) * map->w * map->h)) || \
-		!(map->color_arr = (int *)malloc(sizeof(int) * map->w * map->h)))
+	map->coord_arr = (int *)malloc(sizeof(int) * map->w * map->h));
+	map->color_arr = (int *)malloc(sizeof(int) * map->w * map->h));
+	if (!(map->color_arr) || !(map->coord_arr))
 		success = 0;
 	i = 0;
 	coords_head = coords;
