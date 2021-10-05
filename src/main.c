@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 16:41:57 by oahieiev          #+#    #+#             */
-/*   Updated: 2021/10/04 23:34:02 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 11:27:46 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,6 @@ static t_fdf	*init_fdf(t_map *map)
 	//fdf->cam->zoom <= 0 ? fdf->cam->zoom = 1 : 0;
 	if (fdf->cam->zoom <= 0)
 		fdf->cam->zoom = 1;
-	else
-		fdf->cam->zoom = 0;
 	//fdf->cam->zoom = ifi(fdf->cam->zoom <= 0, 1, 0);
 	fdf->cam->xoff = -(map->w * fdf->cam->zoom / 4);
 	fdf->cam->yoff = (map->h * fdf->cam->zoom) / 3;
