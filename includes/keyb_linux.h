@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 16:52:13 by oahieiev          #+#    #+#             */
-/*   Updated: 2021/10/05 14:22:48 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 14:25:12 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 # define KP_SUBTRACT				0xffad
 # define KB_I						0x0069
 # define KB_U						0x0075
-# define KP_4						0x71
-# define KP_6						0x64
-# define KP_8						0x7a
-# define KP_2						0x78
+# define KP_6						0x71
+# define KP_4						0x64
+# define KP_2						0x7a
+# define KP_8						0x78
 # define KB_W						119
 # define KB_S						115
 # define KB_H						104
