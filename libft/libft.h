@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 13:34:26 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/05 13:39:49 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 13:40:51 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr(char const *s);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl(char const *s);
-void			ft_putendl_fd(char const *s, int fd);
 int				ft_isspace(int c);
 
 /*
