@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   readutils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/04 16:42:33 by oahieiev          #+#    #+#             */
-/*   Updated: 2018/02/04 16:42:34 by oahieiev         ###   ########.fr       */
+/*   Created: 2021/10/04 22:18:35 by tkhattar          #+#    #+#             */
+/*   Updated: 2021/10/04 22:18:40 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "readutils.h"
 #include <stdlib.h>
 
-t_coords		*new_coord(char *str)
+t_coords	*new_coord(char *str)
 {
 	t_coords	*new;
 
@@ -28,7 +28,7 @@ t_coords		*new_coord(char *str)
 	return (new);
 }
 
-void			del_list(t_coords **list)
+void	del_list(t_coords **list)
 {
 	t_coords	*tmp;
 
@@ -42,7 +42,7 @@ void			del_list(t_coords **list)
 	}
 }
 
-int				push_coord(t_coords **head, t_coords *new)
+int	push_coord(t_coords **head, t_coords *new)
 {
 	if (!new)
 	{
@@ -54,7 +54,7 @@ int				push_coord(t_coords **head, t_coords *new)
 	return (1);
 }
 
-int				countwords(char *line, char delim)
+int	countwords(char *line, char delim)
 {
 	int		i;
 	int		count;

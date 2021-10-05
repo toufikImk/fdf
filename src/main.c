@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 16:41:57 by oahieiev          #+#    #+#             */
-/*   Updated: 2021/10/03 05:12:47 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/04 22:27:42 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,6 @@ static t_fdf	*init_fdf(t_map *map)
 	t_fdf		*fdf;
 
 	fdf = alloc_fdf();
-	/*if (!(fdf = (t_fdf *)malloc(sizeof(t_fdf))))
-		return (NULL);
-	fdf->mlx = mlx_init();
-	fdf->window = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF");
-	fdf->cam = malloc(sizeof(t_cam));
-	fdf->img = mlx_new_image(fdf->mlx, WIDTH, HEIGHT);
-	fdf->pxl = mlx_get_data_addr(fdf->img, &(fdf->bpp), \
-				&(fdf->s_line), &(fdf->endian));
-	if (!(fdf->mlx) || !(fdf->window) || !(fdf->cam) || \
-			!(fdf->img) ||!(fdf->pxl))
-		return (cleanall(fdf));*/
 	fdf->map = map;
 	fdf->cam->alph = rad(ISOMETRIC_ANGLE_A);
 	fdf->cam->beta = rad(ISOMETRIC_ANGLE_B);
@@ -92,12 +81,15 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		if ((fd = open(av[1], O_RDONLY)) < 0 || \
-			!(map = read_map(fd)))
+		fd = open(av[1], O_RDONLY));
+		if (fd > 0)
+			map = read_map(fd);
+		if (fd < 0 || !map)
 			return (terminate(READ_ERR_MSG));
 		else
 			close(fd);
-		if (!(fdf = init_fdf(map)))
+		fdf = init_fdf(map);
+		if (!fdf)
 			return (terminate(INIT_ERR_MSG));
 	}
 	else

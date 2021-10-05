@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/04 16:42:21 by oahieiev          #+#    #+#             */
-/*   Updated: 2018/02/04 16:42:22 by oahieiev         ###   ########.fr       */
+/*   Created: 2021/10/04 22:18:43 by tkhattar          #+#    #+#             */
+/*   Updated: 2021/10/04 22:18:43 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "util.h"
 #include <math.h>
 
-float		rad(float deg)
+float	rad(float deg)
 {
 	float	radians;
 
@@ -31,7 +31,7 @@ t_eulers	get_eulers(float angle)
 	return (eul);
 }
 
-t_point		assign_point(int x, int y)
+t_point	assign_point(int x, int y)
 {
 	t_point		p;
 
@@ -40,12 +40,12 @@ t_point		assign_point(int x, int y)
 	return (p);
 }
 
-int			ind(int x, int y, int w, int h)
+int	ind(int x, int y, int w, int h)
 {
 	return (w * h - (x + y * w) - 1);
 }
 
-int			terminate(char *err)
+int	terminate(char *err)
 {
 	ft_putendl(err);
 	exit(0);
