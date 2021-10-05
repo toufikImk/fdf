@@ -10,7 +10,7 @@ SRC=ft_memcpy.c ft_putstr.c ft_striteri.c ft_strnstr.c ft_atoi.c ft_lstadd.c \
 	ft_strlcpy.c ft_strdup.c ft_strncpy.c ft_isprint.c ft_memchr.c ft_putnbr.c \
 	ft_putunbr.c ft_strequ.c ft_strndup.c ft_strnequ.c ft_itoa.c ft_memcmp.c \
 	ft_putnbr_fd.c ft_striter.c ft_strnew.c ft_lstfold.c ft_itoa_base.c\
-	get_next_line.c ft_atoi_base.c
+	get_next_line.c ft_atoi_base.c ft_isspace.c 
 
 .PHONY: all clean fclean re
 

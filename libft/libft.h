@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_libft.h                                         :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/04 14:40:40 by oahieiev          #+#    #+#             */
-/*   Updated: 2017/11/04 14:40:42 by oahieiev         ###   ########.fr       */
+/*   Updated: 2021/10/05 13:19:50 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,12 @@ void			ft_putstr(char const *s);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl(char const *s);
 void			ft_putendl_fd(char const *s, int fd);
+int				ft_isspace(int c);
 
 /*
 ** BONUS
 */
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	size_t			content_size;
