@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/04 16:41:57 by oahieiev          #+#    #+#             */
-/*   Updated: 2021/10/04 22:27:42 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/04 22:29:01 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	main(int ac, char **av)
 
 	if (ac == 2)
 	{
-		fd = open(av[1], O_RDONLY));
+		fd = open(av[1], O_RDONLY);
 		if (fd > 0)
 			map = read_map(fd);
 		if (fd < 0 || !map)
