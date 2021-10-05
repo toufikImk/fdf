@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/04 14:40:40 by oahieiev          #+#    #+#             */
-/*   Updated: 2021/10/05 13:29:51 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 13:31:21 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
-void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 void			*ft_lstfold(t_list *elem, void *(*f)(void *, void *, size_t));
