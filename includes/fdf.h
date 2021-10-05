@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 11:52:10 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/05 12:58:24 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 13:02:07 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@
 
 # define TXT_COLOR 0xCCCCCC
 # define PI 3.14159265359
-# define MIN(x, y) x < y ? x : y
 
 typedef struct s_point
 {
