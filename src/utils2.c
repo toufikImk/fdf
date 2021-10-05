@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 22:16:05 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/04 22:16:07 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 12:57:31 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,12 @@ double	ifd(int cond, t_point p, t_point p0, t_point p1)
 		return (find_perc(p.x, p1.x, p0.x));
 	else
 		return (find_perc(p.y, p1.y, p0.y));
+}
+
+int	min(int x, int y)
+{
+	if (x < y)
+		return (x);
+	else
+		return (y);
 }

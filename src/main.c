@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 12:39:01 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/05 12:39:03 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 12:57:47 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static t_fdf	*init_fdf(t_map *map)
 	fdf->cam->alph = rad(ISOMETRIC_ANGLE_A);
 	fdf->cam->beta = rad(ISOMETRIC_ANGLE_B);
 	fdf->cam->gamm = rad(ISOMETRIC_ANGLE_G);
-	fdf->cam->zoom = MIN(HEIGHT / abs(map->rng + 1),
+	fdf->cam->zoom = min(HEIGHT / abs(map->rng + 1),
 			((HEIGHT / map->h + WIDTH / map->w) / 4) + 1);
 	if (fdf->cam->zoom <= 0)
 		fdf->cam->zoom = 1;
