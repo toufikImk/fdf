@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 22:18:35 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/04 22:18:40 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 12:15:12 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,11 @@ t_coords	*new_coord(char *str)
 	new->c = ft_atoi(str);
 	while (*str && *str != 'x')
 		str++;
-	new->rgb = (*str) ? ft_atoi_base(str++, 16) : -1;
+	//new->rgb = (*str) ? ft_atoi_base(str++, 16) : -1;
+	if (*str)
+		new->rgb = ft_atoi_base(str++, 16);
+	else
+		new->rgb = -1;
 	new->next = NULL;
 	return (new);
 }

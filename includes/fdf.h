@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/04 16:52:47 by oahieiev          #+#    #+#             */
-/*   Updated: 2018/02/04 16:52:48 by oahieiev         ###   ########.fr       */
+/*   Created: 2021/10/05 11:52:10 by tkhattar          #+#    #+#             */
+/*   Updated: 2021/10/05 11:52:32 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define PI 3.14159265359
 # define MIN(x, y) x < y ? x : y
 
-typedef struct			s_point
+typedef struct s_point
 {
 	int					x;
 	int					y;
@@ -48,7 +48,7 @@ typedef struct			s_point
 	int					rgb;
 }						t_point;
 
-typedef struct			s_cam
+typedef struct s_cam
 {
 	short				zoom;
 	char				isom;
@@ -60,7 +60,7 @@ typedef struct			s_cam
 	float				zdiv;
 }						t_cam;
 
-typedef struct			s_map
+typedef struct s_map
 {
 	int					w;
 	int					h;
@@ -72,7 +72,7 @@ typedef struct			s_map
 	unsigned char		cm;
 }						t_map;
 
-typedef struct			s_fdf
+typedef struct s_fdf
 {
 	void				*mlx;
 	void				*window;
@@ -92,7 +92,7 @@ double					find_perc(double start, double end, double cur);
 int						interp_color(int c1, int c2, double p);
 int						get_color(int z, t_map map);
 int						mouse_pressed(int button, int mousex, int mousey,
-	void *param);
+							void *param);
 int						key_pressed(int keycode, void *param);
 float					rad(float deg);
 t_point					assign_point(int x, int y);

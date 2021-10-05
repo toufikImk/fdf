@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   readutils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/04 16:52:38 by oahieiev          #+#    #+#             */
-/*   Updated: 2018/02/04 16:52:39 by oahieiev         ###   ########.fr       */
+/*   Created: 2021/10/05 11:54:32 by tkhattar          #+#    #+#             */
+/*   Updated: 2021/10/05 11:54:43 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef READUTILS_H
 # define READUTILS_H
 
-typedef	struct			s_coords
+typedef struct s_coords
 {
 	int					c;
 	int					rgb;

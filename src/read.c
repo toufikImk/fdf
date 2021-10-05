@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 22:18:23 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/05 11:38:44 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 11:49:47 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,8 @@ t_map	*read_map(int fd)
 	t_coords	*coords;
 
 	coords = NULL;
-	if (!(map = malloc(sizeof(t_map))))
+	map = malloc(sizeof(t_map));
+	if (!(map))
 		return (NULL);
 	map->w = 0;
 	map->h = 0;
