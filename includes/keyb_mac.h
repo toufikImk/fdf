@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 11:55:04 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/05 11:55:07 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 14:18:44 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@
 # define KP_SUBTRACT				78
 # define KB_I						34
 # define KB_U						32
-# define KP_4						86
-# define KP_6						88
-# define KP_8						91
-# define KP_2						84
+# define KP_4						40
+# define KP_6						42
+# define KP_8						27
+# define KP_2						55
 # define KB_W						13
 # define KB_S						1
 # define KB_H						4

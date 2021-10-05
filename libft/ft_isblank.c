@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/31 18:25:52 by oahieiev          #+#    #+#             */
-/*   Updated: 2017/10/31 18:25:54 by oahieiev         ###   ########.fr       */
+/*   Created: 2021/10/05 13:45:03 by tkhattar          #+#    #+#             */
+/*   Updated: 2021/10/05 13:45:09 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isblank(int c)
+int	ft_isblank(int c)
 {
 	return (c == ' ' || c == '\t');
 }
