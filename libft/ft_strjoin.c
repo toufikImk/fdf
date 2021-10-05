@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/02 21:09:56 by oahieiev          #+#    #+#             */
-/*   Updated: 2017/11/02 21:15:41 by oahieiev         ###   ########.fr       */
+/*   Created: 2021/05/04 22:37:21 by tkhattar          #+#    #+#             */
+/*   Updated: 2021/07/13 21:53:43 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,19 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*join;
-	int		i;
+	size_t	lens1;
+	size_t	lens2;
+	char	*strjoin;
 
-	if (!s1 && !s2)
-		return (0);
-	else if (!s1)
-		return ((char *)s2);
-	else if (!s2)
-		return ((char *)s1);
-	if (!(join = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) *
-		sizeof(char))))
-		return (0);
-	i = 0;
-	while (*s1)
-		join[i++] = *s1++;
-	while (*s2)
-		join[i++] = *s2++;
-	join[i] = '\0';
-	return (join);
+	if (!s1 || !s2)
+		return (NULL);
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	strjoin = malloc(sizeof(char) * (lens1 + lens2 + 1));
+	if (!(strjoin))
+		return (NULL);
+	ft_memcpy(strjoin, s1, lens1);
+	ft_memcpy(&strjoin[lens1], s2, lens2);
+	strjoin[lens1 + lens2] = '\0';
+	return (strjoin);
 }

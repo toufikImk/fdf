@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin_n_free.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/04 22:37:28 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/07/13 21:54:06 by tkhattar         ###   ########.fr       */
+/*   Created: 2021/05/04 22:37:13 by tkhattar          #+#    #+#             */
+/*   Updated: 2021/07/13 21:53:15 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strjoin_n_free(char *s1, char *s2)
 {
-	size_t	i;
-	size_t	dstlen;
+	size_t	lens1;
+	size_t	lens2;
+	char	*strjoin;
 
-	i = 0;
-	dstlen = ft_strlen(dst);
-	if (dstsize < dstlen)
-		return (ft_strlen(src) + dstsize);
-	while (src[i] && (dstlen + i + 1) < dstsize)
-	{
-		dst[dstlen + i] = ((char *)src)[i];
-		i++;
-	}
-	dst[dstlen + i] = '\0';
-	return (ft_strlen(src) + dstlen);
+	if (!s1 || !s2)
+		return (NULL);
+	lens1 = ft_strlen(s1);
+	lens2 = ft_strlen(s2);
+	strjoin = malloc(sizeof(char) * (lens1 + lens2 + 1));
+	if (!(strjoin))
+		return (NULL);
+	ft_memcpy(strjoin, s1, lens1);
+	ft_memcpy(&strjoin[lens1], s2, lens2);
+	strjoin[lens1 + lens2] = '\0';
+	free(s1);
+	free(s2);
+	return (strjoin);
 }

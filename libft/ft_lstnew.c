@@ -3,25 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/02 21:07:02 by oahieiev          #+#    #+#             */
-/*   Updated: 2017/11/02 21:07:04 by oahieiev         ###   ########.fr       */
+/*   Created: 2021/05/04 22:34:45 by tkhattar          #+#    #+#             */
+/*   Updated: 2021/05/04 22:34:47 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+t_list	*ft_lstnew(void *content)
 {
-	t_list	*new;
+	t_list	*elem;
 
-	if (!(new = (t_list *)malloc(sizeof(t_list))))
+	elem = malloc(sizeof(t_list));
+	if (!elem)
 		return (NULL);
-	new->content = (content) ? malloc(content_size) : NULL;
-	new->content = (content) ?
-		ft_memcpy(new->content, content, content_size) : NULL;
-	new->content_size = (content) ? content_size : 0;
-	new->next = NULL;
-	return (new);
+	elem->content = content;
+	elem->next = NULL;
+	return (elem);
 }

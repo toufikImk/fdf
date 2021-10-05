@@ -3,41 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/02 21:08:04 by oahieiev          #+#    #+#             */
-/*   Updated: 2017/11/02 21:08:06 by oahieiev         ###   ########.fr       */
+/*   Created: 2021/05/04 22:38:24 by tkhattar          #+#    #+#             */
+/*   Updated: 2021/07/13 21:55:58 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		is_whitespace(char c)
+static int	ft_isset(char c, char const *set)
 {
-	return (c == ' ' || c == '\n' || c == '\t');
+	int	i;
+
+	i = 0;
+	while (set[i])
+		if (c == set[i++])
+			return (1);
+	return (0);
 }
 
-char			*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		start;
-	int		end;
-	char	*trim;
-	int		len;
+	size_t	len;
+	char	*ptr;
+	size_t	i;
+	size_t	j;
 
-	if (!s)
-		return (0);
-	start = 0;
-	while (is_whitespace(s[start]))
-		start++;
-	end = ft_strlen(s);
-	while (is_whitespace(s[end - 1]))
-		end--;
-	if ((len = (end - start)) <= 0)
-		return (ft_strnew(0));
-	if (!(trim = (char *)malloc((len + 1) * sizeof(char))))
-		return (0);
-	while (start < end)
-		*trim++ = s[start++];
-	*trim = '\0';
-	return (trim - len);
+	if (!s1)
+		return (NULL);
+	len = ft_strlen(s1);
+	i = 0;
+	while (ft_isset(s1[i], set))
+		i++;
+	if (i == len)
+		return (ft_strdup(""));
+	j = ft_strlen(s1) - 1;
+	while (ft_isset(s1[j], set))
+		j--;
+	ptr = ft_substr(s1, i, j - i + 1);
+	return (ptr);
 }

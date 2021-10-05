@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oahieiev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/31 18:45:08 by oahieiev          #+#    #+#             */
-/*   Updated: 2017/10/31 18:45:10 by oahieiev         ###   ########.fr       */
+/*   Created: 2021/05/04 22:35:50 by tkhattar          #+#    #+#             */
+/*   Updated: 2021/05/04 22:35:53 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,25 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*p_dst;
-	unsigned char	*p_src;
+	size_t		i;
+	char		*dst_c;
+	const char	*src_c;
 
-	p_dst = (unsigned char *)dst;
-	p_src = (unsigned char *)src;
-	if (p_src < p_dst)
+	i = 0;
+	dst_c = dst;
+	src_c = src;
+	if (!dst && !src)
+		return (NULL);
+	if (src_c < dst_c)
 	{
-		p_src = p_src + len - 1;
-		p_dst = p_dst + len - 1;
-		while (len > 0)
+		i = len;
+		while (i > 0)
 		{
-			*(p_dst--) = *(p_src--);
-			len--;
+			i--;
+			dst_c[i] = src_c[i];
 		}
 	}
 	else
-	{
-		while (len > 0)
-		{
-			*(p_dst++) = *(p_src++);
-			len--;
-		}
-	}
-	return (dst);
+		ft_memcpy(dst_c, src_c, len);
+	return (dst_c);
 }

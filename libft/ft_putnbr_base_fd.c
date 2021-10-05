@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_base_fd.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/04 22:37:28 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/07/13 21:54:06 by tkhattar         ###   ########.fr       */
+/*   Created: 2021/05/04 22:36:23 by tkhattar          #+#    #+#             */
+/*   Updated: 2021/05/04 22:36:25 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t	i;
-	size_t	dstlen;
+/*
+**	unsigned values
+*/
 
-	i = 0;
-	dstlen = ft_strlen(dst);
-	if (dstsize < dstlen)
-		return (ft_strlen(src) + dstsize);
-	while (src[i] && (dstlen + i + 1) < dstsize)
-	{
-		dst[dstlen + i] = ((char *)src)[i];
-		i++;
-	}
-	dst[dstlen + i] = '\0';
-	return (ft_strlen(src) + dstlen);
+void	ft_putnbr_base_fd(unsigned int n, char *base, int fd)
+{
+	size_t	size_base;
+
+	size_base = ft_strlen(base);
+	if (n / size_base > 0)
+		ft_putnbr_base_fd(n / size_base, base, fd);
+	ft_putchar_fd(base[n % size_base], fd);
 }
