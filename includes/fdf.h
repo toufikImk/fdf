@@ -6,7 +6,7 @@
 /*   By: tkhattar <tkhattar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 11:52:10 by tkhattar          #+#    #+#             */
-/*   Updated: 2021/10/05 11:52:32 by tkhattar         ###   ########.fr       */
+/*   Updated: 2021/10/05 13:02:07 by tkhattar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@
 
 # define TXT_COLOR 0xCCCCCC
 # define PI 3.14159265359
-# define MIN(x, y) x < y ? x : y
 
 typedef struct s_point
 {
@@ -103,5 +102,6 @@ float					assign_if(int i, int maxz, int minz, int mrng);
 int						ifi(int cond, int c1, int c2);
 float					assign_if_float(int cond, float c1, float c2);
 double					ifd(int cond, t_point p, t_point p0, t_point p1);
+int						min(int x, int y);
 
 #endif
